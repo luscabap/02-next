@@ -1,13 +1,12 @@
+import GlobalStyle from "../src/themes/GlobalStyle";
+import { Provider } from "@skynexui/components";
+
 function MyApp({ Component, pageProps }) {
     return (
-        <>
-            <style>{`
-                * {
-                    font-family: sans-serif; 
-                }
-            `}</style>
+        <Provider>
+            <GlobalStyle />
             <Component {...pageProps} />
-        </>
+        </Provider>
     )
 }
 
