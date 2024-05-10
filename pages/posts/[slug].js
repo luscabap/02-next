@@ -6,7 +6,7 @@ import dados from '../../dados.json'
 // dicas dos paths estáticos
 export async function getStaticPaths() {
     const paths = dados.posts.map(post => {
-        return { params: { slug: `${post.id}` } }
+        return { params: { slug: `${post.slug}` } }
     })
 
     return {
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     const slug = context.params.slug
     const post = dados.posts.find((currentPost) => {
-        if(currentPost.id === slug) {
+        if(currentPost.slug === slug) {
             return true;
         } 
         return false;

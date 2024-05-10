@@ -42,15 +42,15 @@ export default function HomeScreen() {
         marginTop: '16px',
         gridGap: '16px',
       }}>
-        {posts.map(({ title, content, id }) => (
-          <Post key={id} title={title} content={content} id={id} />
+        {posts.map(({ title, content, id, slug }) => (
+          <Post key={id} title={title} content={content} id={id} slug={slug} />
         ))}
       </Box>
     </Box>
   )
 }
 
-function Post({ title, content, id }) {
+function Post({ title, content, id, slug }) {
   return (
     <Box 
       styleSheet={{
@@ -65,7 +65,7 @@ function Post({ title, content, id }) {
         }
       }}
     >
-      <NextLink href={`posts/${id}`} passHref>
+      <NextLink href={`posts/${slug}`} passHref>
         <Text
           tag="a"
           variant="heading4"
