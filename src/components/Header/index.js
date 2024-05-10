@@ -21,6 +21,9 @@ export default function Header() {
             <NextLink href={`/login`}>
                 <Button iconName="github" label="LOGIN"/>
             </NextLink>
+            <NextLink href={`/postsApi/1`}>
+                <Button label="POSTS API"/>
+            </NextLink>
         </Box>
     );
 }

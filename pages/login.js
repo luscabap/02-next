@@ -25,13 +25,14 @@ export default function LoginScreen() {
           e.preventDefault();
           if(senha) {
             nookies.set(null, 'SENHA_SECRETA', senha, {
-              maxAge: 30 * 24 * 60 * 60,
-              path: '/',
+                maxAge: 30 * 24 * 60 * 60,
+                path: '/'
             });
-            router.push('/area-logada');
+            router.push('/area-logada')
           } else {
-            alert('Informe uma senha!');
+            alert("Informe uma senha!")
           }
+          
         }}
       >
         <Box styleSheet={{ flexDirection: 'column' }}>
