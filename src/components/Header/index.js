@@ -24,6 +24,9 @@ export default function Header() {
             <NextLink href={`/postsApi/1`} prefetch={false}>
                 <Button label="POSTS API"/>
             </NextLink>
+            <NextLink href={`/video`} prefetch={false}>
+                <Button label="VÍDEO"/>
+            </NextLink>
         </Box>
     );
 }
