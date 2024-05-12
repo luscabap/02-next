@@ -15,13 +15,13 @@ export default function Header() {
                 backgroundColor: "gray",
             }}
         >
-            <NextLink href={`/`}>
+            <NextLink href={`/`} prefetch={false}>
                 <Button iconName="arrowRight" label="SITE LUCAS"/>
             </NextLink>
-            <NextLink href={`/login`}>
+            <NextLink href={`/login`} prefetch={false}>
                 <Button iconName="github" label="LOGIN"/>
             </NextLink>
-            <NextLink href={`/postsApi/1`}>
+            <NextLink href={`/postsApi/1`} prefetch={false}>
                 <Button label="POSTS API"/>
             </NextLink>
         </Box>
