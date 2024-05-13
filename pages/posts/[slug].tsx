@@ -1,25 +1,30 @@
 import NextLink from 'next/link';
 import { Box, Text } from '@skynexui/components';
 import { useRouter } from 'next/router';
+import dados from '../../dados.json'
 
 // dicas dos paths estáticos
 export async function getStaticPaths() {
-    const dadosDaApi = await fetch("https://fakeapi-omariosouto.vercel.app/api/posts")
-    .then(res => res.json());
-    const paths = dadosDaApi.posts.map(post => {
-        return { params: { id: `${post.id}` } }
+    const paths = dados.posts.map(post => {
+        return { params: { slug: `${post.slug}` } }
     })
 
     return {
-      paths: [],
-      fallback: 'blocking'
+      paths: paths,
+      fallback: false
     };
 }
 
 export async function getStaticProps(context) {
-    const id = context.params.id
-    const dadosDaApi = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts/${id}`).then(res => res.json());
-    const post = dadosDaApi;
+    const slug = context.params.slug
+    const post = dados.posts.find((currentPost) => {
+        if(currentPost.slug === slug) {
+            return true;
+        } 
+        return false;
+    })
+
+    console.log(post)
 
     return {
         props: {
@@ -28,11 +33,10 @@ export async function getStaticProps(context) {
             date: `${post.date}`,
             content: `${post.content}`      
         },
-        revalidate: 10,
     }
 }
 
-export default function PostsApiScreen(props) {
+export default function PostByIdScreen(props) {
   const router = useRouter();
   const post = {
     title: props.title,
@@ -70,8 +74,6 @@ export default function PostsApiScreen(props) {
         <Text>
           {post.content}
         </Text>
-
-        {post.video && <iframe style={{ marginTop: '32px', minHeight: '400px' }} src={post.video} /> }
       </Box>
 
 

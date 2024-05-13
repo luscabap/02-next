@@ -40,6 +40,7 @@ export default function LoginScreen() {
             label="Qual é a senha secreta?"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
+            name='senha_secreta'
           />
           <Button
             type='submit'

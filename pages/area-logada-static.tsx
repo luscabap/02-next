@@ -28,7 +28,7 @@ export default function LoggedScreen() {
           router.push('/')
           nookies.destroy(null, 'SENHA_SECRETA');
         }}
-        colorVariant='neutral'
+        colorVariant='dark'
         variant='secondary'
       />
     </Box>

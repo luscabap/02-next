@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { Box, Button } from "@skynexui/components";
 
-export default function Header() {
+export default function Header(): JSX.Element {
     return (
         <Box
             styleSheet={{
